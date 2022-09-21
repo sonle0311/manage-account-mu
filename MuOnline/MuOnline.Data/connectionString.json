@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "MuOnlineDb": "Server=14.225.204.159;Database=MuOnline;User Id=sa;Password=Nguhachi@1;MultipleActiveResultSets=true;"
+  }
+}
