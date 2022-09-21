@@ -1,6 +1,6 @@
 # Manage Account MuOnline from SonLe
 ## Technologies
-- .NET 6.0
+- AspNetCore 6.0
 - Entity Framework Core
 ## Install Tools
 - .NET Core SDK 3.1
