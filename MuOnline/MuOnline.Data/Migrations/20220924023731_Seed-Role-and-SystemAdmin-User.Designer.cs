@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MuOnline.Database.EF;
 
@@ -11,9 +12,10 @@ using MuOnline.Database.EF;
 namespace MuOnline.Database.Migrations
 {
     [DbContext(typeof(MuOnlineDbContext))]
-    partial class MuOnlineDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220924023731_Seed-Role-and-SystemAdmin-User")]
+    partial class SeedRoleandSystemAdminUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
