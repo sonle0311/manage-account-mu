@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MuOnline.Database.Entities.Entites;
+using MuOnline.Database.Extensions;
 
 namespace MuOnline.Database.EF
 {
@@ -1216,6 +1217,8 @@ namespace MuOnline.Database.EF
 
             modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+
+            modelBuilder.Seed();
 
             OnModelCreatingPartial(modelBuilder);
         }

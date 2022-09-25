@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Database", "MuOnline.Data\MuOnline.Database.csproj", "{7380BA18-5729-462A-AD8B-E4925F4F568E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Database", "MuOnline.Data\MuOnline.Database.csproj", "{7380BA18-5729-462A-AD8B-E4925F4F568E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Database.Entities", "MuOnline.Database.Entities\MuOnline.Database.Entities.csproj", "{FAB66027-CF76-422D-A1B3-C35265B7AB18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Database.Entities", "MuOnline.Database.Entities\MuOnline.Database.Entities.csproj", "{FAB66027-CF76-422D-A1B3-C35265B7AB18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Services", "MuOnline.Services\MuOnline.Services.csproj", "{79DC4049-192E-45C2-B9B3-378E76E07E8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Services", "MuOnline.Services\MuOnline.Services.csproj", "{79DC4049-192E-45C2-B9B3-378E76E07E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Infrastructure.Core", "MuOnline.Infrastructure.Core\MuOnline.Infrastructure.Core.csproj", "{9191046F-2432-4374-AB16-7E4D7FF5AAA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Infrastructure.Core", "MuOnline.Infrastructure.Core\MuOnline.Infrastructure.Core.csproj", "{9191046F-2432-4374-AB16-7E4D7FF5AAA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Infrastructure.Email", "MuOnline.Infrastructure.Email\MuOnline.Infrastructure.Email.csproj", "{C9F84626-868E-4C1B-AC76-7A9A850FE298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Infrastructure.Email", "MuOnline.Infrastructure.Email\MuOnline.Infrastructure.Email.csproj", "{C9F84626-868E-4C1B-AC76-7A9A850FE298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuOnline.Api", "MuOnline.Api\MuOnline.Api.csproj", "{167B7D04-581E-404D-945D-73C12166813A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuOnline.Api", "MuOnline.Api\MuOnline.Api.csproj", "{167B7D04-581E-404D-945D-73C12166813A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
