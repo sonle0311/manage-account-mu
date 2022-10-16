@@ -85,24 +85,40 @@ namespace MuOnline.Services.CharacterSevices
                 return response;
             }
 
-            character.CLevel = request.Level;
-            character.LevelUpPoint = request.FreePoint;
-            character.Strength = request.Strength;
-            character.Dexterity = request.Agility;
-            character.Vitality = request.Vitality;
-            character.Energy = request.Energy;
-            character.Leadership = request.Command;
+            character.CLevel = request.Level ?? character.CLevel;
+            character.LevelUpPoint = request.FreePoint ?? character.LevelUpPoint;
+            character.Strength = request.Strength ?? character.Strength;
+            character.Dexterity = request.Agility ?? character.Dexterity;
+            character.Vitality = request.Vitality ?? character.Vitality;
+            character.Energy = request.Energy ?? character.Energy;
+            character.Leadership = request.Command ?? character.Leadership;
 
-            masterSkillTree.MasterLevel = request.MasterLevel;
-            masterSkillTree.MasterPoint = request.MasterPonit;
+            masterSkillTree.MasterLevel = request.MasterLevel ?? masterSkillTree.MasterLevel;
+            masterSkillTree.MasterPoint = request.MasterPonit ?? masterSkillTree.MasterPoint;
 
             _characterRepository.Update(character);
             _masterSkillTreeRepository.Update(masterSkillTree);
 
+            if (_unitOfWork.Commit() != 0)
+            {
+                response.Error = new ErrorModel { ErrorCode = 500, Message = "Cannot update data" };
+            }
 
-            var a = _unitOfWork.Commit();
-                
-            
+            response.Data = new UpdateCharacterByCharacterNameReponse
+            {
+                AccountName = character.AccountId,
+                CharacterName = character.Name,
+                CharacterClassName = GetCharacterClassName(character.Class),
+                Level = character.CLevel.Value,
+                FreePoint = character.LevelUpPoint.Value,
+                MasterLevel = masterSkillTree.MasterLevel.Value,
+                MasterPonit = masterSkillTree.MasterPoint.Value,
+                Strength = character.Strength.Value,
+                Agility = character.Dexterity.Value,
+                Vitality = character.Vitality.Value,
+                Energy = character.Energy.Value,
+                Command = character.Leadership.Value
+            };
 
             return response;
         }
