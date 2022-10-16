@@ -1,9 +1,9 @@
 ﻿namespace MuOnline.Infrastructure.Core.Models
 {
-    public class ResponseModel
+    public class ResponseBase<T>
     {
         public ErrorModel Error { get; set; }
 
-        public object Data { get; set; }
+        public T Data { get; set; }
     }
 }

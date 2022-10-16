@@ -7,11 +7,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
+using MuOnline.Database;
 using MuOnline.Database.EF;
 using MuOnline.Database.Entities.Entites;
 using MuOnline.Database.Repositories;
 using MuOnline.Database.UnitOfWork;
+using MuOnline.Services;
 using MuOnline.Services.Abstractions;
+using MuOnline.Services.CharacterSevices;
 using MuOnline.Services.System;
 using MuOnline.Services.System.Dtos;
 using System.Reflection;
@@ -39,21 +42,18 @@ namespace MuOnline.Api
                 .AddEntityFrameworkStores<MuOnlineDbContext>()
                 .AddDefaultTokenProviders();
 
-            builder.Services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
-            builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-            builder.Services.AddTransient(typeof(IRepositoryWithTPrimaryKey<,>), typeof(RepositoryWithTPrimaryKey<,>));
             builder.Services.AddTransient<UserManager<AppUser>,UserManager<AppUser>>();
             builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
 
             builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
             {
-                builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(type => typeof(IBaseService).IsAssignableFrom(type))
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                builder.RegisterModule<DatabaseConfig>();
+                builder.RegisterModule<ServiceConfig>();
+                
 
-                builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
+                //builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+                //builder.RegisterType<CharacterService>().As<ICharacterService>().InstancePerLifetimeScope();
 
             });
 

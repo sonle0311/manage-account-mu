@@ -10,7 +10,7 @@ namespace MuOnline.Database.EF
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("connectionString.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
 
             var connectionString = configuration.GetConnectionString("MuOnlineDb");
