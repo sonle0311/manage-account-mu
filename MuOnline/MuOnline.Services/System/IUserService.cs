@@ -1,11 +1,12 @@
-﻿using MuOnline.Services.Abstractions;
+﻿using MuOnline.Infrastructure.Core.Models;
+using MuOnline.Services.Abstractions;
 using MuOnline.Services.System.Dtos;
 
 namespace MuOnline.Services.System
 {
     public  interface IUserService : IBaseService
     {
-        Task<string> LoginUser(LoginUserRequest request);
-        Task<bool> RegisterUser(RegisterUserRequest request);
+        Task<ResponseBase<LoginUserRespone>> LoginUser(LoginUserRequest request);
+        Task<ResponseBase<bool>> RegisterUser(RegisterUserRequest request);
     }
 }
